@@ -14,12 +14,10 @@ class RolePermissionSeeder extends Seeder
      */
     public function run()
     {
-        // Create Roles
-        $admin = Role::create(['name' => 'Admin']);
-        $manager = Role::create(['name' => 'Manager']);
-        $cashier = Role::create(['name' => 'Cashier']);
+        $admin = Role::firstOrCreate(['name' => 'Admin']);
+        $manager = Role::firstOrCreate(['name' => 'Manager']);
+        $cashier = Role::firstOrCreate(['name' => 'Cashier']);
 
-        // Create Permissions
         $permissions = [
             'product.create',
             'product.view',
@@ -29,21 +27,18 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $permission) {
-            Permission::create(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
-        // Admin gets all permissions
-        $admin->givePermissionTo(Permission::all());
+        $admin->syncPermissions(Permission::all());
 
-        // Manager permissions
-        $manager->givePermissionTo([
+        $manager->syncPermissions([
             'product.view',
             'sale.create',
             'report.view'
         ]);
 
-        // Cashier permissions
-        $cashier->givePermissionTo([
+        $cashier->syncPermissions([
             'sale.create'
         ]);
     }

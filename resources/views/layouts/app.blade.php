@@ -30,7 +30,7 @@
 
 
 
-<body class="bg-gray-200">
+<body class="bg-gray-50">
     @yield('content')
 </body>
 

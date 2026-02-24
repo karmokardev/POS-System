@@ -10,10 +10,9 @@
 
             <!-- Main Content -->
             <div class="flex-1 flex flex-col">
+                @include('header.header')
                 <div>
-                    <h1 class="text-2xl font-bold text-white p-6">
-                        Dashboard
-                    </h1>
+                    dashboard
                 </div>
             </div>
         </div>
