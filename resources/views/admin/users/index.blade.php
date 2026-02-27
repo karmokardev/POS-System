@@ -23,6 +23,7 @@
                                     <th class="p-3">Email</th>
                                     <th class="p-3">Role</th>
                                     <th class="p-3">Status</th>
+                                    <th class="p-3">Role Assign</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,10 +44,16 @@
                                                             <td class="p-3">
                                                                 <div class="flex items-center gap-2">
                                                                     <span class="relative flex items-center justify-center h-3 w-3">
-                                                                        <span class="absolute h-3 w-3 rounded-full bg-green-400 opacity-75 animate-ping"></span>
+
+                                                                        @if($user->isOnline())
+                                                                            <span
+                                                                                class="absolute h-3 w-3 rounded-full bg-green-400 opacity-75 animate-ping"></span>
+                                                                        @endif
+
                                                                         <span class="relative h-2 w-2 rounded-full 
-                                                                            {{ $user->isOnline() ? 'bg-green-500' : 'bg-gray-400' }}">
+                                                                {{ $user->isOnline() ? 'bg-green-500' : 'bg-gray-400' }}">
                                                                         </span>
+
                                                                     </span>
 
 
@@ -68,6 +75,22 @@
                                     ? $user->last_seen->format('d M Y, h:i A')
                                     : 'Never' }}</p>
                                                                 </div>
+                                                            </td>
+                                                            <td>
+                                                                <form action="{{ route('users.assignRole', $user->id) }}" method="POST">
+                                                                    @csrf
+
+                                                                    <select name="role_id" onchange="this.form.submit()">
+                                                                        <option value="">Select Role</option>
+
+                                                                        @foreach($roles as $role)
+                                                                            <option value="{{ $role->id }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>
+                                                                                {{ $role->name }}
+                                                                            </option>
+                                                                        @endforeach
+
+                                                                    </select>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                 @empty

@@ -37,7 +37,6 @@ Route::middleware(['auth', 'role:Admin'])->prefix('admin')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::post('/users/{id}', [UserController::class, 'update'])->name('users.update');
-    Route::post('/users/{user}/role/assign', [UserController::class,'assignRole'])->name('users.assignRole');
 
 
 });

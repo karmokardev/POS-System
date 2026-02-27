@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('roles')->get();
         $roles = Role::all();
         return view('admin.users.index', compact('users', 'roles'));
     }
@@ -70,5 +70,15 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function assignRole(Request $request, User $user)
+    {
+
+
+        $role = Role::findById($request->role_id);
+        $user->syncRoles([$role->name]);
+
+        return back()->with('success', 'Role Assigned Successfully');
     }
 }
