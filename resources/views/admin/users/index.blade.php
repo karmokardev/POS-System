@@ -18,7 +18,7 @@
                         <table class="w-full text-left border-collapse">
                             <thead class="bg-gray-100">
                                 <tr>
-                                    <th class="p-3">id</th>
+                                    <th class="p-3">s. No</th>
                                     <th class="p-3">Name</th>
                                     <th class="p-3">Email</th>
                                     <th class="p-3">Role</th>
@@ -30,7 +30,7 @@
 
                                 @forelse($users as $key => $user)
                                                         <tr class="border-t hover:bg-gray-50 transition">
-                                                            <td class="p-3">{{ $key + 1 }}</td>
+                                                            <td class="p-3">{{ $key + 1 }}.</td>
                                                             <td class="p-3">{{ $user->name }}</td>
                                                             <td class="p-3">{{ $user->email }}</td>
                                                             <td class="p-3">

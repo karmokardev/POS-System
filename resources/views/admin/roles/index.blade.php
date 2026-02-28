@@ -56,7 +56,7 @@
                                             <tr class="hover:bg-gray-50">
 
                                                 <td class="px-4 py-2 border">
-                                                    {{ $role->id }}
+                                                    {{ $role->id }}.
                                                 </td>
 
                                                 <td class="px-4 py-2 border">

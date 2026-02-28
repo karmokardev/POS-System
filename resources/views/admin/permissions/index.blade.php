@@ -52,7 +52,7 @@
                                 <tbody>
                                     @foreach($permissions as $permission)
                                         <tr>
-                                            <td class="border px-4 py-2">{{ $permission->id }}</td>
+                                            <td class="border px-4 py-2">{{ $permission->id }}.</td>
 
                                             <td class="border px-4 py-2">
                                                 <form action="{{ route('permissions.update', $permission->id) }}" method="POST"

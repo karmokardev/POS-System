@@ -29,7 +29,7 @@
                             <tbody>
                                 @forelse($activities as $key => $activity)
                                     <tr class="border-t hover:bg-gray-50">
-                                        <td class="p-3">{{ $activities->firstItem() + $key }}</td>
+                                        <td class="p-3">{{ $activities->firstItem() + $key }}.</td>
                                         <td class="p-3">{{ $activity->user->name }}</td>
 
                                         <td class="p-3">

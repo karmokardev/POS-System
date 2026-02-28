@@ -49,7 +49,7 @@
 
                     <div class="flex items-center justify-center md:gap-3 w-full md:w-auto">
                         <i class="fa fa-cogs text-lg"></i>
-                        <span class="hidden md:block font-semibold">Management</span>
+                        <span class="hidden md:block font-semibold">User Management</span>
                     </div>
 
                     <i class="fa fa-chevron-down hidden md:block text-xs transition-transform"
@@ -86,6 +86,19 @@
                     </a>
                 </div>
             </div>
+            <!-- category -->
+            <a href="{{ route('categories.index') }}" class="flex items-center justify-center md:justify-start md:gap-3 px-0 md:px-3 hover:bg-brand-500 hover:text-white py-2 rounded-lg transition
+                    {{ request()->routeIs('categories.index')
+    ? 'bg-brand-50 text-[#c3592b]'
+    : 'text-gray-700 hover:bg-[#c3592b] hover:text-white' }}">
+
+                <i class="fa fa-list text-lg"></i>
+
+                <span class="hidden md:block font-semibold">
+                    Category
+                </span>
+            </a>
+            <!-- Login History -->
             <a href="{{ route('loginHistory.index') }}" class="flex items-center justify-center md:justify-start md:gap-3 px-0 md:px-3 hover:bg-brand-500 hover:text-white py-2 rounded-lg transition
                     {{ request()->routeIs('loginHistory.index')
     ? 'bg-brand-50 text-[#c3592b]'
@@ -97,7 +110,8 @@
                     Login History
                 </span>
             </a>
-            
+
+
         </nav>
         @endrole
 
