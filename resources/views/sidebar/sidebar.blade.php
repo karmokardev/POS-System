@@ -92,10 +92,21 @@
     ? 'bg-brand-50 text-[#c3592b]'
     : 'text-gray-700 hover:bg-[#c3592b] hover:text-white' }}">
 
-                <i class="fa fa-list text-lg"></i>
+                <i class="fa fa-layer-group text-lg"></i>
 
                 <span class="hidden md:block font-semibold">
                     Category
+                </span>
+            </a>
+            <!-- brands -->
+            <a href="{{ route('brands.index') }}" class="flex items-center justify-center md:justify-start md:gap-3 px-0 md:px-3 hover:bg-brand-500 hover:text-white py-2 rounded-lg transition
+                    {{ request()->routeIs('brands.index')
+    ? 'bg-brand-50 text-[#c3592b]'
+    : 'text-gray-700 hover:bg-[#c3592b] hover:text-white' }}">
+                <i class="fa fa-tags text-lg"></i>
+
+                <span class="hidden md:block font-semibold">
+                    Brands
                 </span>
             </a>
             <!-- Login History -->

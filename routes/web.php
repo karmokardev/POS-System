@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserActivityController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,8 @@ Route::middleware(['auth', 'role:Admin'])->prefix('admin')->group(function () {
 
 Route::middleware(['role:Admin|Manager'])->group(function () {
     Route::resource('categories', CategoryController::class);
+
+    Route::resource('brands', BrandController::class);
 });
 Route::get('categories-api', [CategoryController::class, 'api']);
 
